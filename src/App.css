@@ -13,6 +13,11 @@
   }
 }
 
+.banner {
+  background-size: cover;
+  background-position: center;
+  padding: 150px 0;
+}
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -28,6 +33,93 @@
   color: #61dafb;
 }
 
+.pagination-nav a {
+  display: flex !important;
+  align-items: center;
+}
+
+.cards-pagination {
+  margin: 30px 0;
+  padding: 0 10px;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.cards-pagination li a {
+  position: relative;
+  color: #777;
+  width: 40px;
+  height: 40px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  margin-right: 5px;
+  text-align: center;
+  line-height: 40px;
+  display: block;
+  font-size: 12px;
+  font-weight: 500;
+}
+.cards-pagination li a i {
+  line-height: 40px;
+}
+.cards-pagination li a:before {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 50%;
+  content: "";
+  cursor: pointer;
+  height: 0;
+  left: 50%;
+  opacity: 0;
+  position: absolute;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  transition: all 170ms linear;
+  top: 50%;
+  width: 0;
+}
+.cards-pagination li a:hover:before {
+  -webkit-animation: hoverAnimation 510ms linear forwards;
+  animation: hoverAnimation 510ms linear forwards;
+  height: 40px;
+  width: 40px;
+}
+.cards-pagination li a:hover,
+.cards-pagination li a:focus {
+  text-decoration: none;
+  color: #4051b5;
+}
+.cards-pagination li.selected a {
+  background: #4051b5;
+  color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+.cards-pagination li.disabled a {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+@-webkit-keyframes hoverAnimation {
+  from {
+    opacity: 0.78;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@keyframes hoverAnimation {
+  from {
+    opacity: 0.78;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+button.MuiButtonBase-root.MuiIconButton-root.MuiIconButton-colorSecondary
+  > span.MuiIconButton-label {
+  color: white;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -35,4 +127,33 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.MuiCardMedia-root {
+  height: 220px;
+}
+
+.app-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+}
+.card-wrapper {
+  padding: 20px;
+}
+.MuiCard-root {
+  max-width: 700px;
+  color: "white" !important;
+}
+
+.MuiAppBar-root {
+  background-color: #121212 !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+.section-wrapper {
+  display: flex;
+  justify-content: center;
+}
+.article-wrapper {
+  max-width: 680px;
+  width: 100%;
 }

@@ -1,9 +1,20 @@
-const fetchArticles = async () => {
+export const fetchArticles = async (options = null) => {
+  let defaultFilters = {
+    pageSize: 20,
+    pageNumber: options ? options.pageNumber : 1
+  };
+
   let response = await fetch(
-    "https://content.guardianapis.com/search?order-by=newest&show-fields=all&api-key=7c03b900-62d0-4099-a5a4-6d83c43314fd"
+    `https://content.guardianapis.com/search?order-by=newest&show-fields=all&page-size=${defaultFilters.pageSize}&page=${defaultFilters.pageNumber}&api-key=${process.env.REACT_APP_GUARDIAN_API_KEY}`
   );
   let data = await response.json();
   return data.response;
 };
 
-export { fetchArticles };
+export const fetchSingleItem = async id => {
+  let response = await fetch(
+    `https://content.guardianapis.com/${id}?api-key=${process.env.REACT_APP_GUARDIAN_API_KEY}&show-fields=all`
+  );
+  let data = await response.json();
+  return data.response;
+};
