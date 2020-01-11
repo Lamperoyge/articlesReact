@@ -1,5 +1,10 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+How to start the app: 
 
+1. git clone git@github.com:Lamperoyge/articlesReact.git
+2. in the project folder: yarn install / npm install
+3. create .env file with REACT_APP_GUARDIAN_API_KEY=API_KEY (env variables are set during the build phase, if you set your API_KEY after starting the project, please restart it )
+4. yarn start
 ## Available Scripts
 
 In the project directory, you can run:
